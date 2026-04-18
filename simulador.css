@@ -1,70 +1,155 @@
+:root {
+    --primary-color: #ffcc00; /* Amarillo institucional */
+    --secondary-color: #000000; /* Negro */
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    color: var(--text-color);
 }
 
-.container {
-    width: 400px;
-    margin: 40px auto;
+/* Encabezado Empresarial */
+.main-header {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    border-bottom: 5px solid var(--primary-color);
 }
 
-h1 {
+/* Contenedor Responsive */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 10px;
+}
+
+.section-title {
     text-align: center;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-h2 {
-    margin-top: 20px;
-    font-size: 18px;
+/* Tarjetas de información */
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+    color: var(--secondary-color);
+}
+
+.input-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    font-size: 0.9rem;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
 }
 
-p {
-    margin-top: 10px;
+input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
 }
 
-span {
+/* Cajas de resultados */
+.result-box {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.result-box p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.highlighted {
+    background-color: #fff9e6;
+    border: 1px dashed var(--primary-color);
+}
+
+.status-text {
+    text-align: center;
     font-weight: bold;
-    color: #2c3e50;
+    margin-top: 20px;
 }
 
+/* Botones Responsive */
 .buttons {
-    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Por defecto para móvil */
+    gap: 10px;
 }
 
 button {
-    width: 48%;
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #3498db;
-    color: white;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color: #2980b9;
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: #e6b800;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 20px;
+    color: #777;
+}
+
+/* Media Query para Pantallas más grandes */
+@media (min-width: 480px) {
+    .buttons {
+        flex-direction: row; /* En tablets/PC los botones se ponen uno al lado del otro */
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
 }

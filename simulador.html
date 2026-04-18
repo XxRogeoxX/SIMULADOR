@@ -3,44 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Crédito</title>
+    <title>Banco Astillero - Simulador de Crédito</title>
     <link rel="stylesheet" href="simulador.css">
+    <script src="funciones.js"></script>
+    <script src="simulador.js"></script>
 </head>
 <body>
 
+    <div class="main-header">
+        <h1>BANCO ASTILLERO</h1>
+    </div>
+
     <div class="container">
-        <h1>Simulador de Crédito</h1>
+        <h2 class="section-title">Simulador de Crédito Personal</h2>
 
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
+        <div class="card">
+            <h3>1. Datos Financieros</h3>
+            <div class="input-group">
+                <label for="txtIngresos">Ingresos Mensuales:</label>
+                <input type="number" id="txtIngresos" placeholder="Ej: 1000">
+            </div>
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+            <div class="input-group">
+                <label for="txtEgresos">Egresos Mensuales:</label>
+                <input type="number" id="txtEgresos" placeholder="Ej: 400">
+            </div>
 
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+            <div class="result-box">
+                <p>Disponible: $ <span id="spnDisponible">0.00</span></p>
+                <p>Capacidad de pago: $ <span id="spnCapacidadPago">0.00</span></p>
+            </div>
+        </div>
 
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
+        <div class="card">
+            <h3>2. Solicitud de Crédito</h3>
+            <div class="input-group">
+                <label for="txtMonto">Monto del Préstamo:</label>
+                <input type="number" id="txtMonto" placeholder="Ej: 5000">
+            </div>
 
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
+            <div class="input-group">
+                <label for="txtPlazo">Plazo (Años):</label>
+                <input type="number" id="txtPlazo" placeholder="Ej: 3">
+            </div>
 
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
+            <div class="input-group">
+                <label for="txtTasaInteres">Tasa de Interés Anual (%):</label>
+                <input type="number" id="txtTasaInteres" placeholder="Ej: 15">
+            </div>
 
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+            <div class="result-box highlighted">
+                <p>Interés a pagar: $ <span id="spnInteresPagar">0.00</span></p>
+                <p>Total a pagar: $ <span id="spnTotalPrestamo">0.00</span></p>
+                <p>Cuota mensual estimada: $ <span id="spnCuotaMensual">0.00</span></p>
+            </div>
+            
+            <p class="status-text">ESTADO: <span id="spnEstadoCredito">ESPERANDO DATOS...</span></p>
+        </div>
 
         <div class="buttons">
-            <button id="btnCalcularCredito">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
+            <button onclick="calcular();" id="btnCalcularCredito" class="btn-primary">CALCULAR CRÉDITO</button>
+            <button onclick="limpiar();" id="btnReiniciar" class="btn-secondary">NUEVA SIMULACIÓN</button>
         </div>
     </div>
 
+    <div class="footer">
+        <p>&copy; 2026 Banco Astillero S.A. - Todos los derechos reservados.</p>
+    </div>
 </body>
 </html>

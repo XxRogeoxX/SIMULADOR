@@ -1,0 +1,1 @@
+teniendo en cuentas la documentacion que te he pasado necesito que hagas modificaciones visuales en el html y el css excluyendo al js de toda modificacion, necesito que el diseño sea empresarial similar al Banco Pinchicna pero el nombre sea el banco Astillero, recuerda que la visucailzacion tiene que ser responsive hagamos las pruebas y te digo como mas podemos corregir
