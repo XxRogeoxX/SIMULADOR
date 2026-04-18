@@ -1,0 +1,10 @@
+Necesito estas validaciones 
+Ingresos/Egresos: Deben ser superior al sueldo básico que es 482
+Monto del préstamo: Podrías poner un mínimo de $400 y un máximo de $20000
+Plazo: Un rango de 1 a 10 años. Si ponen 0 debería salir un error.
+Tasa de Interés: No debería ser fija al 16%.
+Adicional ningún campo donde se ingresa datos debe estar vacio ni tampoco debe ser negativo el valor. 
+Implementación visual
+Los errores aparezcan debajo de cada campo. Lograr esto sin romper tu diseño responsive:
+
+La validacion que el interes tiene que ser apartir de 16% no la esta cogiendo 
