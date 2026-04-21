@@ -18,9 +18,15 @@ function validarFormulario() {
     let ingresos = parseFloat(document.getElementById("txtIngresos").value);
     mostrarError("txtIngresos", "errIngresos", (isNaN(ingresos) || ingresos < 482) ? "Mínimo sueldo básico ($482)" : "");
 
-    // 2. Validar Egresos
-    let egresos = parseFloat(document.getElementById("txtEgresos").value);
-    mostrarError("txtEgresos", "errEgresos", (isNaN(egresos) || egresos < 0) ? "Ingrese un valor válido" : "");
+    // 2. Validar Gastos Individuales
+    let arriendo = parseFloat(document.getElementById("txtArriendo").value);
+    mostrarError("txtArriendo", "errArriendo", (isNaN(arriendo) || arriendo < 0) ? "Ingrese un valor" : "");
+
+    let alimentacion = parseFloat(document.getElementById("txtAlimentacion").value);
+    mostrarError("txtAlimentacion", "errAlimentacion", (isNaN(alimentacion) || alimentacion < 0) ? "Ingrese un valor" : "");
+
+    let varios = parseFloat(document.getElementById("txtVarios").value);
+    mostrarError("txtVarios", "errVarios", (isNaN(varios) || varios < 0) ? "Ingrese un valor" : "");
 
     // 3. Validar Monto (400 a 20000)
     let monto = parseFloat(document.getElementById("txtMonto").value);
@@ -45,17 +51,26 @@ function calcular() {
     }
 
     let ingresos = parseFloat(document.getElementById("txtIngresos").value);
-    let egresos = parseFloat(document.getElementById("txtEgresos").value);
+    
+    // Obtener valores de los tres nuevos campos y sumarlos
+    let arriendo = parseFloat(document.getElementById("txtArriendo").value);
+    let alimentacion = parseFloat(document.getElementById("txtAlimentacion").value);
+    let varios = parseFloat(document.getElementById("txtVarios").value);
+    let totalGastos = arriendo + alimentacion + varios;
+
     let monto = parseFloat(document.getElementById("txtMonto").value);
     let plazo = parseInt(document.getElementById("txtPlazo").value);
     let tasa = parseFloat(document.getElementById("txtTasaInteres").value);
 
-    let disponible = calcularDisponible(ingresos, egresos);
+    // Cálculos usando las funciones de funciones.js
+    let disponible = calcularDisponible(ingresos, totalGastos);
     let capacidad = calcularCapacidadPago(disponible);
     let interes = calcularInteresSimple(monto, tasa, plazo);
     let total = calcularTotalPagar(monto, interes);
     let cuota = calcularCuotaMensual(total, plazo);
 
+    // Mostrar resultados en la interfaz
+    document.getElementById("spnTotalGastos").innerText = totalGastos.toFixed(2);
     document.getElementById("spnDisponible").innerText = disponible.toFixed(2);
     document.getElementById("spnCapacidadPago").innerText = capacidad.toFixed(2);
     document.getElementById("spnInteresPagar").innerText = interes.toFixed(2);

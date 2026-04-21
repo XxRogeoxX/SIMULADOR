@@ -10,6 +10,9 @@
 </head>
 <body>
     <div class="main-header">
+        <div class="logo-container">
+            <img src="LOGO.png" alt="Logo Banco Astillero" class="bank-logo">
+        </div>
         <h1>BANCO ASTILLERO</h1>
     </div>
 
@@ -25,12 +28,25 @@
             </div>
 
             <div class="input-group">
-                <label for="txtEgresos">Egresos Mensuales:</label>
-                <input type="number" id="txtEgresos" placeholder="Ej: 400">
-                <span id="errEgresos" class="error-msg"></span>
+                <label for="txtArriendo">Arriendo:</label>
+                <input type="number" id="txtArriendo" placeholder="Ej: 200">
+                <span id="errArriendo" class="error-msg"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="txtAlimentacion">Alimentación:</label>
+                <input type="number" id="txtAlimentacion" placeholder="Ej: 150">
+                <span id="errAlimentacion" class="error-msg"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="txtVarios">Varios:</label>
+                <input type="number" id="txtVarios" placeholder="Ej: 50">
+                <span id="errVarios" class="error-msg"></span>
             </div>
 
             <div class="result-box">
+                <p>Total Gastos: $ <span id="spnTotalGastos">0.00</span></p>
                 <p>Disponible: $ <span id="spnDisponible">0.00</span></p>
                 <p>Capacidad de pago: $ <span id="spnCapacidadPago">0.00</span></p>
             </div>

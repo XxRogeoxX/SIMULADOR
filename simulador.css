@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #ffcc00;
-    --secondary-color: #000000;
+    --primary-color: #ffcc00; /* Dorado/Amarillo Astillero */
+    --secondary-color: #000000; /* Negro */
     --bg-color: #f4f4f4;
     --white: #ffffff;
     --error-color: #d9534f;
@@ -12,39 +12,81 @@ body {
     margin: 0;
 }
 
+/* --- ESTILOS DEL LOGO Y CABECERA --- */
 .main-header {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
     border-bottom: 5px solid var(--primary-color);
 }
 
+.logo-container {
+    margin-bottom: 10px;
+}
+
+.bank-logo {
+    width: 120px; /* Tamaño ajustable */
+    height: auto;
+    border-radius: 50%; /* Si el logo es circular queda perfecto */
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); /* Brillo dorado suave */
+    border: 2px solid var(--primary-color);
+}
+
+.main-header h1 {
+    margin: 10px 0 0 0;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDORES Y TARJETAS --- */
 .container {
     width: 90%;
     max-width: 600px;
     margin: 30px auto;
 }
 
-.card {
-    background: var(--white);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.section-title {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
 }
 
-.input-group { margin-bottom: 15px; }
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.input-group { margin-bottom: 18px; }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
 
 input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     box-sizing: border-box;
+    font-size: 1rem;
 }
 
-/* --- CLASES DE ERROR --- */
+/* --- RESULTADOS Y ERRORES --- */
 .error-msg {
     color: var(--error-color);
     font-size: 0.8rem;
@@ -58,12 +100,63 @@ input.invalid {
     background-color: #fff2f2;
 }
 
-.result-box { background: #f9f9f9; padding: 10px; border-radius: 4px; margin-top: 10px; }
-.highlighted { background: #fff9e6; border: 1px dashed var(--primary-color); }
+.result-box { 
+    background: #fdfdfd; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-top: 15px; 
+    border-left: 4px solid #ddd;
+}
 
-.buttons { display: flex; flex-direction: column; gap: 10px; }
-button { padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-.btn-primary { background: var(--primary-color); color: var(--secondary-color); }
-.btn-secondary { background: var(--secondary-color); color: var(--white); }
+.result-box p { margin: 8px 0; font-weight: 500; }
 
-@media (min-width: 480px) { .buttons { flex-direction: row; } }
+.highlighted { 
+    background: #fffdf2; 
+    border: 1px dashed var(--primary-color); 
+    border-left: 4px solid var(--primary-color);
+}
+
+.status-text {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* --- BOTONES --- */
+.buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+
+button { 
+    padding: 15px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:active { transform: scale(0.98); }
+
+.btn-primary { 
+    background: var(--primary-color); 
+    color: var(--secondary-color); 
+}
+
+.btn-primary:hover { background: #e6b800; }
+
+.btn-secondary { 
+    background: var(--secondary-color); 
+    color: var(--white); 
+}
+
+.btn-secondary:hover { background: #333; }
+
+.footer { 
+    text-align: center; 
+    padding: 30px; 
+    font-size: 0.85rem; 
+    color: #777; 
+}
+
+@media (min-width: 480px) { .buttons { flex-direction: row; } button { flex: 1; } }
